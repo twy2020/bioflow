@@ -1,0 +1,36 @@
+# config.yaml
+# SRA数据所在目录（注意该目录下所有.sra文件将被处理）
+input_dir: test/SRP1122034
+
+# 输出结果存放目录（按项目编号命名，每个SRA的结果放在单独目录下）
+output_dir: output/SRP1122034
+
+# 任务日志存放目录
+log_dir: ./logs
+
+# 项目描述属性（可选）
+project_name: "RNA-seq Project"
+project_creator: "teng"
+
+# 是否保留中间文件（false：删除FASTQ、QC、Trim结果；true：保留所有中间文件）
+retain_intermediate: false
+
+# fastq-dump参数（SRA转FASTQ）
+fastq_dump_params: "--gzip --split-3"
+
+# fastqc参数
+fastqc_threads: 4
+
+# trim-galore参数（注意：此处只给出示例参数，具体参数根据实际需求配置）
+trimgalore_params: "--phred33 --stringency 3 -q 25 --paired --gzip"
+
+# HISAT2相关配置
+hisat2_index: test/SRP1122034/hisat2_build/Sitalica_italica/Sitalica_index   # hisat2索引前缀（不含后缀）
+hisat2_threads: 16
+
+# samtools参数
+samtools_threads: 8
+
+# StringTie相关配置
+stringtie_threads: 16
+gff3_file: test/SRP1122034/Sitalica_312_v2.2.gene.gff3
